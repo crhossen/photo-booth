@@ -1,0 +1,16 @@
+extends layout
+
+block head
+
+block content
+  h1 Photobooth Sessions
+  each session in sessions
+    div.session
+      a(href=session.uri + '/index.html')
+        img(src=session.uri + '/images/images.gif')
+        span= session.id
+      hr
+
+
+
+

@@ -1,0 +1,100 @@
+//
+   Created by chris on 3/8/15.
+doctype html
+html
+    head
+        title Photos - Five Up
+        style(type='text/css').
+            body
+            {
+                text-align: center;
+                font-family: "MeaCulpa";
+                font-weight: 100;
+                width: 6in;
+                height: 4in;
+                margin: 0in;
+                position: absolute;
+                left: 0in;
+                top: 0in;
+                padding: 0in;
+            }
+            h1
+            {
+                font-size: 1.8em;
+                padding-top: 0.28in;
+            }
+            h2
+            {
+                padding-top: 1.98in;
+            }
+
+            .logo-left, .logo-right
+            {
+                width: 0.5in;
+                height: 0.5in;
+                position: absolute;
+                top: 1.75in;
+            }
+
+            .logo-left
+            {
+                left: 0.8in;
+            }
+            .logo-right
+            {
+                right: 0.8in;
+            }
+
+            /* See http://jsfiddle.net/xwrvxser/1/ */
+            img
+            {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            .image
+            {
+                width: 2in;
+                height: 1.33in;
+                position: absolute;
+                border-style: solid;
+                border-width: 5px;
+            }
+            #tl
+            {
+                left: 0.1in;
+                top: 0.1in;
+            }
+            #tr
+            {
+                right: 0.1in;
+                top: 0.1in;
+            }
+            #bl
+            {
+                left: 0.1in;
+                bottom: 0.1in;
+            }
+            #br
+            {
+                right: 0.1in;
+                bottom: 0.1in;
+            }
+            #center
+            {
+                left: 1.95in;
+                top: 1.29in;
+            }
+    body
+        h1 BRIDE &amp; GROOM
+
+        img.logo-left(src='../../logo-gray.png')
+        img.logo-right(src='../../logo-gray.png')
+
+        img#tl.image(src=((images.length > 0) ? './images/' + images[0].full : '../../colorbars.jpg'))
+        img#tr.image(src=((images.length > 1) ? './images/' + images[1].full : '../../colorbars.jpg'))
+        img#bl.image(src=((images.length > 2) ? './images/' + images[2].full : '../../colorbars.jpg'))
+        img#br.image(src=((images.length > 3) ? './images/' + images[3].full : '../../colorbars.jpg'))
+        img#center.image(src=((images.length > 4) ? './images/' + images[4].full : '../../colorbars.jpg'))
+
+        h2 May 21 2316

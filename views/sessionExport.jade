@@ -1,0 +1,13 @@
+//
+   Created by chris on 3/8/15.
+
+doctype html
+html
+  head
+    title Photobooth Session
+  body
+    a(href='/') Back To Photobooth
+    div
+      each imageName in imageNames
+        a(href='./images/' + imageName.full)
+          img(src='./images/' + imageName.thumb)

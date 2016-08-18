@@ -35,3 +35,9 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Stuff captured by applications
+gallery_export/*
+public/images/captures/*.jpg
+public/images/liveview/*.jpg
+public/images/sessions/*/*

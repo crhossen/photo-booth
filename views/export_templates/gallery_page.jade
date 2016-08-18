@@ -1,0 +1,18 @@
+//
+   Created by chris on 2/21/16.
+extends gallery_layout
+
+block content
+  each session in sessions
+    div.row.row-eq-height.session(data-seshid=session.id)
+      div.col-md-2.col-sm-4.col-xs-6.timestamp-wrapper
+        div.timestamp= session.view.time
+
+        a.btn.btn-lg.animate-button(href="javascript://", role="button")
+          span.glyphicon.glyphicon-play
+        a.btn.btn-lg.printout-button(role="button")
+          span.glyphicon.glyphicon-print
+      div.col-md-2.col-sm-4.col-xs-6
+
+      each imgnum in ['00', '01', '02', '03', '03']
+        img.img-responsive.thumb-img.col-md-2.col-sm-4.col-xs-6(src=session.id+"/img-"+imgnum+".thumb.jpg")

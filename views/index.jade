@@ -1,0 +1,241 @@
+extends layout
+
+block head
+  script(src='/javascripts/jquery-2.1.3.min.js')
+  script(src='/javascripts/bootstrap.min.js')
+  script(src='/javascripts/cameraClient.js')
+  title Photos - Five Up
+
+  style(type='text/css').
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+        background: black;
+    }
+
+    p {
+      color: #fff;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 1.5em;
+    }
+
+    #left-curtain {
+      background:url('/images/curtains-l.png');
+      width:400px;
+      height:613px;
+      left: 0px;
+      top: 0px;
+      position: absolute;
+      z-index: 1;
+      float: left;
+    }
+
+    #right-curtain {
+      background:url('/images/curtains-r.png');
+      width:400px;
+      height:613px;
+      float: right;
+      top: 0px;
+      right: 0px;
+      z-index: 1;
+      margin-top: 0px;
+      padding-top: 0px;
+      line-height: 0px;
+      position: absolute;
+    }
+
+    #new-session-card {
+      position: absolute;
+      margin-top: 100px;
+      z-index: 2;
+      position: absolute;
+      width: 100%; /* lol u mad centering */
+      text-align: center;
+    }
+
+    #error-card {
+      position: absolute;
+      margin-top: 100px;
+      z-index: 2;
+      position: absolute;
+      width: 100%; /* lol u mad centering */
+      text-align: center;
+    }
+
+
+    button.btn-huge {
+      width: 300px;
+      height: 80px;
+      font-size: 175%;
+    }
+
+    button.btn-larger {
+      width: 200px;
+      height: 80px;
+      font-size: 175%;
+    }
+
+    #in-session-card {
+      position: absolute;
+      margin-top: 50px;
+      z-index: 2;
+      width: 100%; /* lol u mad centering */
+      text-align: center;
+    }
+
+    #live-view {
+      width: 640px;
+      height: 424px;
+      margin: 0 auto;
+      overflow:hidden;
+      background-image: url('/images/logoOnBlack.png');
+      background-repeat: no-repeat;
+    }
+
+    #live-view img {
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1)
+    }
+
+    #count-down-overlay {
+      width: 640px;
+      margin: 0 auto;
+      position: absolute;
+      top: 60%;
+      text-align: center;
+      font-size: 5em;
+      color: #eee;
+      z-index: 4;
+    }
+
+    #count-down-text {
+      border-radius: 25px;
+      padding: 3px 15px;
+      background: rgba(0,0,0,0.5);
+    }
+
+    #processing-session-card {
+      position: absolute;
+      margin-top: 170px;
+      z-index: 2;
+      position: absolute;
+      width: 100%; /* lol u mad centering */
+      text-align: center;
+    }
+
+    #end-session-card {
+      position: absolute;
+      margin-top: 50px;
+      z-index: 2;
+      width: 100%; /* lol u mad centering */
+      text-align: center;
+    }
+
+    #gif-toggle {
+      position: absolute;
+      right: 0;
+      width: 20%;
+      height: 384px;
+    }
+
+
+    #preview-frame {
+      width: 576px;
+      height: 384px;
+      background-color: #FFFFFF;
+      border: none;
+    }
+
+
+    #title {
+      color: #eee;
+      font-family: 'CarnivalMF OpenShadow';
+    }
+
+    #logo {
+      width: 40px;
+      height: 40px;
+      margin-top: 50px;
+    }
+block content
+  div#left-curtain
+  div#right-curtain
+
+  div#new-session-card
+    h1#title Photo Booth!
+    br
+    h2 Hi there! I control the photo booth!
+    p Press <strong>Get Started</strong>...<br /> and I will take 5 pictures and create a print out for you!
+    div(align="center")
+      div.alert.alert-danger.fade.in(id="sesh-alert", style="width:400px; margin-top:40px; display: none")
+        h4 Oh snap!
+        span.new-sesh-error
+        br
+        span Are you sure you want to end the session and continue? If you're not sure, poke INSERT RESPONSIBLE PERSON or the groom/bride.
+        br
+        br
+        button#kill-session(class="btn btn-danger") End Session
+        div.session-link
+          a#link-to-killed-session(class="btn btn-default", href='#', style='display: none;') View the recently ended session
+    br
+    button.start-session.btn.btn-primary.btn-lg.btn-huge(type="button") Get Started!
+    br
+    img#logo.image(src='/images/logo-gray.png')
+
+  div#in-session-card
+    img#spinner(src='/images/spinner.gif' style='display: none;')
+    div#live-view
+      img#live-view-img(src='/images/logoOnBlack.png')
+      div#count-down-overlay
+        span#count-down-text Warming Up!
+
+  div#processing-session-card
+    img(src='/images/spinner-on-black.gif')
+    h2 Developing...
+
+  div#end-session-card
+    div#gif-toggle
+    iframe#preview-frame(src='about:blank')
+    br
+    div.btn-group.btn-group-lg(role="group")
+      button#print-options-button.btn.btn-primary.btn-larger(type="button", data-toggle="modal", data-target="#print-modal") Print...
+      button#done-button.btn.btn-default.btn-larger(type="button") Done!
+    span.new-sesh-error
+
+  div#error-card
+    div(align="center")
+      div.alert.alert-danger.fade.in(id="other-alert", style="width:400px; margin-top:40px; display: none")
+        h4 Oh snap!
+        span Something bad happened. Feel free to try it again. If it's still broken, poke INSERT RESPONSIBLE PERSON or the groom/bride.
+        br
+        br
+        button#try-again(class="btn btn-danger") Try Again!
+
+
+  div#print-modal.modal.fade(tabindex="-1", role="dialog", hidden="true")
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button.close(type="button", data-dismiss="modal")
+            span &times;
+          h4.modal-title Print Options
+        div.modal-body
+          form.form-inline
+            div.form-group(align="center")
+              label.control-label(for='print-copies-input', style='margin-right: 4px;') Copies
+              div.input-group
+                span.input-group-btn
+                  button#copies-minus.btn.btn-default(type="button") -
+                input#print-copies-input.form-control(type="number", min="1", max="10", value="1")
+                span.input-group-btn
+                  button#copies-plus.btn.btn-default(type="button") +
+        div.modal-footer
+          button.btn.btn-default(data-dismiss="modal") Cancel
+          button.btn.btn-primary#print-button Print!

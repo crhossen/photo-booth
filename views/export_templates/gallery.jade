@@ -1,0 +1,119 @@
+//
+   Created by chris on 7/5/15.
+
+doctype html
+html(lang='en')
+   head
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
+      meta(name='description', content='')
+      meta(name='author', content='')
+      title Grid Template for Bootstrap
+      // Bootstrap core CSS
+      script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==", crossorigin="anonymous")
+      link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==", crossorigin="anonymous")
+      // Custom styles for this template
+   body
+      .container
+         .page-header
+            h1 Bootstrap grid examples
+            p.lead
+               | Basic grid layouts to get you familiar with building within the Bootstrap grid system.
+         h3 Three equal columns
+         p
+            | Get three equal-width columns
+            strong starting at desktops and scaling to large desktops
+            | . On mobile devices, tablets and below, the columns will automatically stack.
+         .row
+            .col-md-4 .col-md-4
+            .col-md-4 .col-md-4
+            .col-md-4 .col-md-4
+         h3 Three unequal columns
+         p
+            | Get three columns
+            strong starting at desktops and scaling to large desktops
+            |  of various widths. Remember, grid columns should add up to twelve for a single horizontal block. More than that, and columns start stacking no matter the viewport.
+         .row
+            .col-md-3 .col-md-3
+            .col-md-6 .col-md-6
+            .col-md-3 .col-md-3
+         h3 Two columns
+         p
+            | Get two columns
+            strong starting at desktops and scaling to large desktops
+            | .
+         .row
+            .col-md-8 .col-md-8
+            .col-md-4 .col-md-4
+         h3 Full width, single column
+         p.text-warning No grid classes are necessary for full-width elements.
+         hr
+         h3 Two columns with two nested columns
+         p
+            | Per the documentation, nesting is easy&mdash;just put a row of columns within an existing column. This gives you two columns
+            strong starting at desktops and scaling to large desktops
+            | , with another two (equal widths) within the larger column.
+         p
+            | At mobile device sizes, tablets and down, these columns and their nested columns will stack.
+         .row
+            .col-md-8
+               | .col-md-8
+               .row
+                  .col-md-6 .col-md-6
+                  .col-md-6 .col-md-6
+            .col-md-4 .col-md-4
+         hr
+         h3 Mixed: mobile and desktop
+         p
+            | The Bootstrap 3 grid system has four tiers of classes: xs (phones), sm (tablets), md (desktops), and lg (larger desktops). You can use nearly any combination of these classes to create more dynamic and flexible layouts.
+         p
+            | Each tier of classes scales up, meaning if you plan on setting the same widths for xs and sm, you only need to specify xs.
+         .row
+            .col-xs-12.col-md-8 .col-xs-12 .col-md-8
+            .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+         .row
+            .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+            .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+            .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+         .row
+            .col-xs-6 .col-xs-6
+            .col-xs-6 .col-xs-6
+         hr
+         h3 Mixed: mobile, tablet, and desktop
+         p
+         .row
+            .col-xs-12.col-sm-6.col-lg-8 .col-xs-12 .col-sm-6 .col-lg-8
+            .col-xs-6.col-lg-4 .col-xs-6 .col-lg-4
+         .row
+            .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4
+            .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4
+            .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4
+         hr
+         h3 Column clearing
+         p
+            a(href='http://getbootstrap.com/css/#grid-responsive-resets') Clear floats
+            |  at specific breakpoints to prevent awkward wrapping with uneven content.
+         .row
+            .col-xs-6.col-sm-3
+               | .col-xs-6 .col-sm-3
+               br
+               |           Resize your viewport or check it out on your phone for an example.
+            .col-xs-6.col-sm-3 .col-xs-6 .col-sm-3
+            // Add the extra clearfix for only the required viewport
+            .clearfix.visible-xs
+            .col-xs-6.col-sm-3 .col-xs-6 .col-sm-3
+            .col-xs-6.col-sm-3 .col-xs-6 .col-sm-3
+         hr
+         h3 Offset, push, and pull resets
+         p Reset offsets, pushes, and pulls at specific breakpoints.
+         .row
+            .col-sm-5.col-md-6 .col-sm-5 .col-md-6
+            .col-sm-5.col-sm-offset-2.col-md-6.col-md-offset-0 .col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0
+         .row
+            .col-sm-6.col-md-5.col-lg-6 .col-sm-6 .col-md-5 .col-lg-6
+            .col-sm-6.col-md-5.col-md-offset-2.col-lg-6.col-lg-offset-0 .col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0
+      // /container
+      // Bootstrap core JavaScript
+      // ==================================================
+      // Placed at the end of the document so the pages load faster

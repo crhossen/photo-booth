@@ -1,0 +1,28 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.session-link {
+    font-size: 175%;
+    margin-bottom: 20px;
+}
+
+button.derp-button {
+    height: 80px;
+    width: 50%;
+    font-size: 175%;
+}
+
+@font-face {
+    font-family: 'MeaCulpa';
+    src: url('/fonts/MeaCulpa.ttf');
+}
+
+@font-face {
+    font-family: 'CarnivalMF OpenShadow';
+    src: url('/fonts/CarnivalMF OpenShadow.ttf');
+}
